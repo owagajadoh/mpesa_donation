@@ -98,6 +98,14 @@ app.post('/api/callback', (req, res) => {
   res.status(200).json({ message: 'Callback received successfully' });
 });
 
+// Serve static files in production (if you have a front-end)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('public'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+  });
+}
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
