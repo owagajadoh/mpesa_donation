@@ -33,7 +33,12 @@ document.getElementById("mpesaForm").addEventListener("submit", function (e) {
   submitBtn.disabled = true;
   spinner.style.display = "block";
 
-  fetch('http://localhost:3000/api/stkpush', {
+  // Determine base URL based on environment
+  const BASE_URL = location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : "https://mpesa-donation.onrender.com";
+
+  fetch(`${BASE_URL}/api/stkpush`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ phone, amount })
