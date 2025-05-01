@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate via M-Pesa – Nyambita Foundation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="donation-container">
+    <img src="mpesa-logo.png" alt="M-Pesa Logo" />
+    <h1>Donate via M-Pesa</h1>
+    <p>Your support helps us grow communities. Enter your phone number and donation amount.</p>
+
+    <form id="mpesaForm" novalidate>
+      <!-- Phone Input with +254 prefix -->
+      <div style="display: flex; align-items: center;">
+        <span style="padding: 0.5rem; background: #eee; border: 1px solid #ccc; border-right: none;">+254</span>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="7XXXXXXXX or 1XXXXXXXX"
+          style="flex: 1; border: 1px solid #ccc; padding: 0.5rem;"
+          required
+        />
+      </div>
+
+      <input
+        type="number"
+        id="amount"
+        name="amount"
+        placeholder="Amount (KES)"
+        min="1"
+        max="9999999999999"
+        title="Enter a valid amount"
+        required
+      />
+
+      <button type="submit" id="submitBtn">Donate</button>
+      <div class="spinner" id="spinner"></div>
+      <div id="status"></div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
