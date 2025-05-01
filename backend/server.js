@@ -97,6 +97,7 @@ app.post('/api/callback', (req, res) => {
 
 
 // Serve frontend (Render or local)
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
 app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Default route to serve the main frontend page
