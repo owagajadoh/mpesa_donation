@@ -101,7 +101,8 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Default route to serve the main frontend page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'donate.html'));
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'donate.html'));
+
 });
 
 // Start the server
