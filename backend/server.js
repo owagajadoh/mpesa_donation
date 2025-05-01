@@ -94,16 +94,12 @@ app.post('/api/callback', (req, res) => {
   res.status(200).json({ message: 'Callback received successfully' });
 });
 
-// Serve static files in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('public'));
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-  });
-}
+
 
 // Serve frontend (Render or local)
-app.use('/', express.static(path.join(__dirname, 'frontend')));
+app.use(express.static(path.join(__dirname, 'frontend')));
+
+// Default route to serve the main frontend page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'donate.html'));
 });
